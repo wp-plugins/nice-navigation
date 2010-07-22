@@ -20,7 +20,7 @@ This plugin adds a widget that makes your page list expandable/collapsible with 
 * Users with JavaScript disabled will se a regular menu
 * No downsides for SEO/Google, all pages still browsable by search engines
 * All arguments/options available for wp_list_pages is available for this plugin/widget.
-* Styles can be overriddenwith your own custom CSS
+* Styles can be overridden with your own custom CSS
 * Looks cool! ;)
 
 
