@@ -33,8 +33,12 @@ This plugin adds a widget that makes your page list expandable/collapsible with 
 == Screenshots ==
 
 1. It's your menu. Before and after Nice Navigation.
+2. Nice Navigation widget configuration. Choose function and layout/look.
 
 == Changelog ==
+
+= 1.2 =
+- wp_enqueue_style uses media screen. Hopefully this works better with gzip/minifiy-plugins. Thanks to http://twitter.com/JohannesHoppe/ for mentioning this.
 
 = 1.1 =
 * Plugin now available on wordpress.org

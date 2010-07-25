@@ -4,9 +4,23 @@ Plugin Name: Nice Navigation
 Plugin URI: http://eskapism.se/code-playground/nice-navigation/
 Description: Adds a widget that makes your page list expandable/collapsible with a nice slide animation effect
 Author: Pär Thernström
-Version: 1.1
+Version: 1.2
 Author URI: http://eskapism.se/
 */
+
+add_action('widgets_init', create_function('', 'return register_widget("Nice_Navigation");'));
+add_action("init", "nice_navigation_init");
+function nice_navigation_init() {
+
+	define( "NICE_NAVIGATION_URL", WP_PLUGIN_URL . '/nice-navigation/');
+	define( "NICE_NAVIGATION_VERSION", "1.2");
+
+	wp_enqueue_script( "nice-navigation", NICE_NAVIGATION_URL . "script.js", array("jquery"), NICE_NAVIGATION_VERSION );
+	wp_enqueue_style( "nice-navigation", NICE_NAVIGATION_URL . "styles.css", array(), NICE_NAVIGATION_VERSION, "screen" );
+
+	add_filter('page_css_class', 'nice_navigation_page_css_class', 10, 2);
+
+}
 
 class Nice_Navigation extends WP_Widget {
 
@@ -146,20 +160,6 @@ class Nice_Navigation extends WP_Widget {
 
 }
 
-add_action('widgets_init', create_function('', 'return register_widget("Nice_Navigation");'));
-
-add_action("init", "nice_navigation_init");
-function nice_navigation_init() {
-
-	define( "NICE_NAVIGATION_URL", WP_PLUGIN_URL . '/nice-navigation/');
-	define( "NICE_NAVIGATION_VERSION", "0.2");
-
-	wp_enqueue_script( "nice-navigation", NICE_NAVIGATION_URL . "script.js", array("jquery"), NICE_NAVIGATION_VERSION );
-	wp_enqueue_style( "nice-navigation", NICE_NAVIGATION_URL . "styles.css", array(), NICE_NAVIGATION_VERSION);
-
-	add_filter('page_css_class', 'nice_navigation_page_css_class', 10, 2);
-
-}
 
 /**
  * adds class "page-has-children" to all pages that have children
