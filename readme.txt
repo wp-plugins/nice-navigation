@@ -1,5 +1,5 @@
 === Plugin Name ===
-Contributors: eskapism
+Contributors: eskapism, MarsApril
 Donate link: http://eskapism.se/sida/donate/
 Tags: page, pages, tree, cms, dashboard, overview, drag-and-drop, rearrange, management, manage, admin
 Requires at least: 3.0
@@ -23,6 +23,9 @@ This plugin adds a widget that makes your page list expandable/collapsible with 
 * Styles can be overridden with your own custom CSS
 * Looks cool! ;)
 
+#### Donation and more plugins
+* If you like this plugin don't forget to [donate to support further development](http://eskapism.se/sida/donate/).
+* Check out some [more plugins](http://wordpress.org/extend/plugins/profile/eskapism) by the same author.
 
 == Installation ==
 
