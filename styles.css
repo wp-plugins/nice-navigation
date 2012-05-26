@@ -32,7 +32,8 @@ div.nice_navigation li.nice-navigation-deselected {
 	background-image: url(images/arrow-right.gif) !important;
 }
 
-div.nice_navigation li.current_page_item {
+div.nice_navigation li.current_page_item > a
+ {
 	font-weight: bold;
 }
 

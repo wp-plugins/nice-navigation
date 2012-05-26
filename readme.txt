@@ -1,12 +1,12 @@
 === Plugin Name ===
 Contributors: eskapism, MarsApril
 Donate link: http://eskapism.se/sida/donate/
-Tags: page, pages, tree, cms, dashboard, overview, drag-and-drop, rearrange, management, manage, admin
-Requires at least: 3.0
-Tested up to: 3.0
-Stable tag: trunk
+Tags: page, pages, tree, cms, tree, page tree, navigation, expand, collapse, navigation tree, list pages
+Requires at least: 3.3
+Tested up to: 3.3
+Stable tag: 1.2 
 
-Adds a widget that makes your page list expandable/collapsible with a nice slide animation effect.
+A widget that add a list of your pages as a list with option to expand and collaps the page tree with a nice slide animation effect.
 
 == Description ==
 
@@ -25,7 +25,7 @@ This plugin adds a widget that makes your page list expandable/collapsible with 
 
 #### Donation and more plugins
 * If you like this plugin don't forget to [donate to support further development](http://eskapism.se/sida/donate/).
-* Check out some [more plugins](http://wordpress.org/extend/plugins/profile/eskapism) by the same author.
+* Check out some [more WordPress CMS plugins](http://wordpress.org/extend/plugins/profile/eskapism) by the same author.
 
 == Installation ==
 
@@ -39,6 +39,12 @@ This plugin adds a widget that makes your page list expandable/collapsible with 
 2. Nice Navigation widget configuration. Choose function and layout/look.
 
 == Changelog ==
+
+= trunk =
+- Works a lot faster with sites with many pages. Hooray!
+- Added option to make a click a the parent link expand the tree and not follow the link
+- Does not load CSS or scripts in admin
+- Small fix to CSS to make selected post bold
 
 = 1.2 =
 - wp_enqueue_style uses media screen. Hopefully this works better with gzip/minifiy-plugins. Thanks to http://twitter.com/JohannesHoppe/ for mentioning this.

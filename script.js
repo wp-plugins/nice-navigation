@@ -1,23 +1,41 @@
 jQuery(function($) {
 
 	var $nice_navigations = $("div.nice_navigation");
+	var options = window.nice_navigation_options;
 
 	// hide childs on load
 	$nice_navigations.find("ul ul").hide();
 	
 	// open up onstart
-	$nice_navigations.find(".current_page_ancestor,.current_page_parent,.current_page_item").find("ul:first").show();
+	$nice_navigations.find("li.current_page_ancestor,li.current_page_parent,li.current_page_item").find("ul:first").show();
 	
-	$nice_navigations.find("ul li").live("mousedown", function(e) {
-		$target = $(e.target);
-		if ($target.is("a")) {
-			// click on link, don't do anything
-			//console.log("is a");
+	// Click on a = possibly expand, or possibly go to link
+	$nice_navigations.find("ul a").live("click", function(e, isFromLI) {
+
+		$this = $(this);
+		var do_expand = true;
+		
+		// get the options for this instance
+		var widget_wrapper = $this.closest("div.widget-wrapper");
+		var widget_options = options[widget_wrapper.attr("id").replace("-", "")];
+		
+		e.stopPropagation();
+		
+		// click on link, don't do anything unless "clickable_parent"is true, then we expand!
+		// or if the click comes from an LI-element, then do not go to link, just expand
+		if (widget_options.clickable_parent || isFromLI) {
+			// clickable parent, so expand and don't go to link
+			e.preventDefault();
 		} else {
+			// not clickable parent, don't expand, go to link
+			do_expand = false;
+		}
+		
+		if (do_expand) {
 			//console.log("is NOT a");
-			$this = $(this);
-			if ($this.find("ul").length) {
-				$this.find("ul:first").slideToggle("fast", function() {
+			
+			if ($this.next("ul").length) {
+				$this.next("ul:first").slideToggle("fast", function() {
 					if ( $this.find("ul:first").is(":visible") ) {
 						//console.log("visible");
 						$this.removeClass("nice-navigation-deselected");
@@ -32,6 +50,22 @@ jQuery(function($) {
 			}
 			return false;
 		}
+
+	});
+
+	// Click on li = expand, but don't go to link
+	$nice_navigations.find("ul li").live("click", function(e) {
+		
+		// click the first a below this one, because that's where the action is
+		console.log("mousedown li");
+		e.stopPropagation();
+		var $this = $(this);
+		
+		// Trigger click event on the link.
+		// Also pass extraParameter "true" that tells the click event to just expand and not go to the link
+		$this.find("a:first").trigger("click", [true]);
+		
+		return;
 
 	});
 });
