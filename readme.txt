@@ -1,7 +1,7 @@
 === Plugin Name ===
 Contributors: eskapism, MarsApril
 Donate link: http://eskapism.se/sida/donate/
-Tags: page, pages, tree, cms, tree, page tree, navigation, expand, collapse, navigation tree, list pages
+Tags: page, pages, tree, cms, tree, page tree, navigation, expand, collapse, navigation tree, list pages, sidebar, widget
 Requires at least: 3.3
 Tested up to: 3.3
 Stable tag: 1.2 
