@@ -12,6 +12,8 @@ jQuery(function($) {
 	// Click on a = possibly expand, or possibly go to link
 	$nice_navigations.find("ul a").live("click", function(e, isFromLI) {
 
+		e.stopPropagation();
+		
 		$this = $(this);
 		var do_expand = true;
 		
@@ -19,7 +21,15 @@ jQuery(function($) {
 		var widget_wrapper = $this.closest("div.widget-wrapper");
 		var widget_options = options[widget_wrapper.attr("id").replace("-", "")];
 		
-		e.stopPropagation();
+		// Grab the ul that we will expand/collapse
+		var next_ul = $this.next("ul");
+
+		// Determine if this is the parent link of a ul or not
+		if (!next_ul.length) {
+			// Not a parent, does not have childs. Just go to the link.
+			return true;
+		}
+		
 		
 		// click on link, don't do anything unless "clickable_parent"is true, then we expand!
 		// or if the click comes from an LI-element, then do not go to link, just expand
@@ -32,23 +42,20 @@ jQuery(function($) {
 		}
 		
 		if (do_expand) {
-			//console.log("is NOT a");
 			
 			if ($this.next("ul").length) {
 				$this.next("ul:first").slideToggle("fast", function() {
 					if ( $this.find("ul:first").is(":visible") ) {
-						//console.log("visible");
 						$this.removeClass("nice-navigation-deselected");
 						$this.addClass("nice-navigation-selected");
 					} else {
-						//console.log("not visible");
 						$this.removeClass("nice-navigation-selected");
 						$this.addClass("nice-navigation-deselected");
 					}
 				});
 				
 			}
-			return false;
+
 		}
 
 	});
@@ -57,7 +64,6 @@ jQuery(function($) {
 	$nice_navigations.find("ul li").live("click", function(e) {
 		
 		// click the first a below this one, because that's where the action is
-		console.log("mousedown li");
 		e.stopPropagation();
 		var $this = $(this);
 		
