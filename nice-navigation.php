@@ -13,7 +13,7 @@ add_action("init", "nice_navigation_init");
 
 function nice_navigation_init() {
 
-	define( "NICE_NAVIGATION_URL", WP_PLUGIN_URL . '/nice-navigation/');
+	define( "NICE_NAVIGATION_URL",  plugins_url() . '/nice-navigation/');
 	define( "NICE_NAVIGATION_VERSION", "1.3");
 	
 	// Add more stlyes to the output of wp_list_pages
