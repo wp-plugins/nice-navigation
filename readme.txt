@@ -4,7 +4,7 @@ Donate link: http://eskapism.se/sida/donate/
 Tags: page, pages, tree, cms, tree, page tree, navigation, expand, collapse, navigation tree, list pages, sidebar, widget
 Requires at least: 3.3
 Tested up to: 3.3
-Stable tag: 1.2 
+Stable tag: 1.3
 
 A widget that add a list of your pages as a list with option to expand and collaps the page tree with a nice slide animation effect.
 
@@ -40,13 +40,12 @@ This plugin adds a widget that makes your page list expandable/collapsible with 
 
 == Changelog ==
 
-= trunk =
+= 1.3 =
 - Works a lot faster with sites with many pages. Hooray!
 - Added option to make a click a the parent link expand the tree and not follow the link
 - Does not load CSS or scripts in admin
 - Small fix to CSS to make selected post bold
 - Hopefully loads scripts and styles via https if that's being used on the site
-- 
 
 = 1.2 =
 - wp_enqueue_style uses media screen. Hopefully this works better with gzip/minifiy-plugins. Thanks to http://twitter.com/JohannesHoppe/ for mentioning this.
