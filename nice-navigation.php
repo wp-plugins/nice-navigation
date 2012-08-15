@@ -193,7 +193,7 @@ class Nice_Navigation extends WP_Widget {
 				widget_id: 			"<?php echo $widget_id ?>"
 			}
 		</script>
-		<?
+		<?php
 		//}
 
 		$nav_output = "";
