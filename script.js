@@ -18,7 +18,7 @@ jQuery(function($) {
 		var do_expand = true;
 		
 		// get the options for this instance
-		var widget_wrapper = $this.closest("div.widget-wrapper");
+		var widget_wrapper = $this.closest("div.nice_navigation");
 		var widget_options = options[widget_wrapper.attr("id").replace("-", "")];
 		
 		// Grab the ul that we will expand/collapse
