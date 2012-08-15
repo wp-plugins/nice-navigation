@@ -4,7 +4,7 @@ Plugin Name: Nice Navigation
 Plugin URI: http://eskapism.se/code-playground/nice-navigation/
 Description: Adds a widget that makes your page list expandable/collapsible with a nice slide animation effect
 Author: Pär Thernström
-Version: 1.3
+Version: 1.5
 Author URI: http://eskapism.se/
 */
 
