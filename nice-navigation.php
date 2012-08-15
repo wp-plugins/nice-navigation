@@ -14,7 +14,7 @@ add_action("init", "nice_navigation_init");
 function nice_navigation_init() {
 
 	define( "NICE_NAVIGATION_URL",  plugins_url() . '/nice-navigation/');
-	define( "NICE_NAVIGATION_VERSION", "1.3");
+	define( "NICE_NAVIGATION_VERSION", "1.5");
 	
 	// Add more stlyes to the output of wp_list_pages
 	add_filter('page_css_class', 'nice_navigation_page_css_class', 10, 4);
@@ -209,7 +209,7 @@ class Nice_Navigation extends WP_Widget {
 		
 		$look = $instance["look"];
 
-		$nav_output .= sprintf('
+		/* $nav_output .= sprintf('
 			<!-- 
 			Nice_Navigation debug:
 			Function: %1$s
@@ -218,10 +218,10 @@ class Nice_Navigation extends WP_Widget {
 			', 
 			htmlspecialchars($function),
 			htmlspecialchars(print_r($arguments, TRUE))
-		);
+		); // */
 
 		if (function_exists($function)) {
-			$nav_output .= "<div class='nice_navigation nice_navigation_look_$look'>";
+			$nav_output .= "<div class='nice_navigation nice_navigation_look_$look' id='{$widget_id}'>";
 
 			if ($function == "wp_list_pages") {
 				$nav_output .= "<ul>";
