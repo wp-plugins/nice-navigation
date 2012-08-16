@@ -4,7 +4,7 @@ Plugin Name: Nice Navigation
 Plugin URI: http://eskapism.se/code-playground/nice-navigation/
 Description: Adds a widget that makes your page list expandable/collapsible with a nice slide animation effect
 Author: Pär Thernström
-Version: 1.3
+Version: 1.6
 Author URI: http://eskapism.se/
 */
 
@@ -14,7 +14,7 @@ add_action("init", "nice_navigation_init");
 function nice_navigation_init() {
 
 	define( "NICE_NAVIGATION_URL",  plugins_url() . '/nice-navigation/');
-	define( "NICE_NAVIGATION_VERSION", "1.3");
+	define( "NICE_NAVIGATION_VERSION", "1.6");
 	
 	// Add more stlyes to the output of wp_list_pages
 	add_filter('page_css_class', 'nice_navigation_page_css_class', 10, 4);
@@ -177,7 +177,7 @@ class Nice_Navigation extends WP_Widget {
 	function widget($args, $instance) {
 
 		// <div class="widget-wrapper widget_nice_navigation" id="nice_navigation-2"><div class="widget-title"></div>
-		$widget_id = $args["widget_id"];
+		$widget_id = "nice_navigation_" . $args["widget_id"];
 		$widget_id_for_js = str_replace("-", "", $widget_id);
 		// If "clickable_parent" is set we must notify our js about that somehow
 		// That's on a widget level, so not all may have that
@@ -193,7 +193,7 @@ class Nice_Navigation extends WP_Widget {
 				widget_id: 			"<?php echo $widget_id ?>"
 			}
 		</script>
-		<?
+		<?php
 		//}
 
 		$nav_output = "";
@@ -209,7 +209,7 @@ class Nice_Navigation extends WP_Widget {
 		
 		$look = $instance["look"];
 
-		$nav_output .= sprintf('
+		/* $nav_output .= sprintf('
 			<!-- 
 			Nice_Navigation debug:
 			Function: %1$s
@@ -218,10 +218,10 @@ class Nice_Navigation extends WP_Widget {
 			', 
 			htmlspecialchars($function),
 			htmlspecialchars(print_r($arguments, TRUE))
-		);
+		); // */
 
 		if (function_exists($function)) {
-			$nav_output .= "<div class='nice_navigation nice_navigation_look_$look'>";
+			$nav_output .= "<div class='nice_navigation nice_navigation_look_$look' id='{$widget_id}'>";
 
 			if ($function == "wp_list_pages") {
 				$nav_output .= "<ul>";
