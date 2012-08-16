@@ -177,7 +177,7 @@ class Nice_Navigation extends WP_Widget {
 	function widget($args, $instance) {
 
 		// <div class="widget-wrapper widget_nice_navigation" id="nice_navigation-2"><div class="widget-title"></div>
-		$widget_id = $args["widget_id"];
+		$widget_id = "nice_navigation_" . $args["widget_id"];
 		$widget_id_for_js = str_replace("-", "", $widget_id);
 		// If "clickable_parent" is set we must notify our js about that somehow
 		// That's on a widget level, so not all may have that
@@ -221,7 +221,7 @@ class Nice_Navigation extends WP_Widget {
 		); // */
 
 		if (function_exists($function)) {
-			$nav_output .= "<div class='nice_navigation nice_navigation_look_$look' id='{$widget_id}'>";
+			$nav_output .= "<div class='nice_navigation nice_navigation_look_$look' id='nice_navigation_{$widget_id}'>";
 
 			if ($function == "wp_list_pages") {
 				$nav_output .= "<ul>";
