@@ -4,7 +4,7 @@ Plugin Name: Nice Navigation
 Plugin URI: http://eskapism.se/code-playground/nice-navigation/
 Description: Adds a widget that makes your page list expandable/collapsible with a nice slide animation effect
 Author: Pär Thernström
-Version: 1.5
+Version: 1.6
 Author URI: http://eskapism.se/
 */
 
@@ -14,7 +14,7 @@ add_action("init", "nice_navigation_init");
 function nice_navigation_init() {
 
 	define( "NICE_NAVIGATION_URL",  plugins_url() . '/nice-navigation/');
-	define( "NICE_NAVIGATION_VERSION", "1.5");
+	define( "NICE_NAVIGATION_VERSION", "1.6");
 	
 	// Add more stlyes to the output of wp_list_pages
 	add_filter('page_css_class', 'nice_navigation_page_css_class', 10, 4);
@@ -177,7 +177,7 @@ class Nice_Navigation extends WP_Widget {
 	function widget($args, $instance) {
 
 		// <div class="widget-wrapper widget_nice_navigation" id="nice_navigation-2"><div class="widget-title"></div>
-		$widget_id = $args["widget_id"];
+		$widget_id = "nice_navigation_" . $args["widget_id"];
 		$widget_id_for_js = str_replace("-", "", $widget_id);
 		// If "clickable_parent" is set we must notify our js about that somehow
 		// That's on a widget level, so not all may have that
